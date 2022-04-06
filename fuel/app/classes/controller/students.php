@@ -1,5 +1,5 @@
 <?php
-class Controller_Posts extends Controller_Template
+class Controller_Students extends Controller_Template
 {
 
     //Show list all student
@@ -7,12 +7,12 @@ class Controller_Posts extends Controller_Template
 	{
 		// return Response::forge(View::forge('welcome/index'));
         if(Input::post('add')) {
-            Response::redirect('/posts/add');
+            Response::redirect('/students/add');
         }
         $student = Model_Student::find('all');
         $data = array('students' => $student);
         $this->template->title = 'List Students';
-        $this->template->content = View::forge('posts/index',$data, false);
+        $this->template->content = View::forge('students/index',$data, false);
         // die('Posts index');
 	}
     //Add student
@@ -61,7 +61,7 @@ class Controller_Posts extends Controller_Template
             $student->age = Input::post('age');
             $student->save();
             Session::set_flash('success', 'Student Updated');
-            Response::redirect('/posts/index');
+            Response::redirect('/students/index');
             }
         $student = Model_Student::find('first', array(
             'where' => array(
@@ -70,7 +70,7 @@ class Controller_Posts extends Controller_Template
          ));
 		$data = array('student' => $student);
         $this->template->title = 'Edit Student';
-        $this->template->content = View::forge('posts/change', $data, false);
+        $this->template->content = View::forge('students/change', $data, false);
         }
         else {
             if(Input::post('save')) {
@@ -79,11 +79,11 @@ class Controller_Posts extends Controller_Template
                 $student->age = Input::post('age');
                 $student->save();
                 Session::set_flash('success', 'Student Added');
-                Response::redirect('/posts/index');
+                Response::redirect('/students/index');
             }
             $data = array();
             $this->template->title = 'Add Student';
-            $this->template->content = View::forge('posts/change', $data, false);
+            $this->template->content = View::forge('students/change', $data, false);
         }
     }
     //Delete student
@@ -92,7 +92,7 @@ class Controller_Posts extends Controller_Template
         $student = Model_Student::find($id);
         $student->delete();
         Session::set_flash('success', 'Student Deleted');
-        Response::redirect('/posts/index');
+        Response::redirect('/students/index');
 	}
 
     //View student by Id
@@ -101,7 +101,7 @@ class Controller_Posts extends Controller_Template
         $student = Model_Student::find($id);
 		$data = array('student' => $student);
         $this->template->title = 'View Post';
-        $this->template->content = View::forge('posts/view', $data, false);
+        $this->template->content = View::forge('students/view', $data, false);
 	}
 
 }

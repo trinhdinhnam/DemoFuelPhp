@@ -6,7 +6,7 @@
  <?php endif; ?>
  
 <div class="header"><h2>Danh sách các Sinh viên</h2></div>
-<?php echo Form::open('/posts/index'); ?>
+<?php echo Form::open('/students/index'); ?>
 <div class="actions">
     <a href="<?=Router::get('student.add')?>" class="btn btn-primary">Thêm mới</a>
 </div>
