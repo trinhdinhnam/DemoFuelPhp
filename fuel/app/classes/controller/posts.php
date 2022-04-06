@@ -70,7 +70,7 @@ class Controller_Posts extends Controller_Template
          ));
 		$data = array('student' => $student);
         $this->template->title = 'Edit Student';
-        $this->template->content = View::forge('posts/edit', $data, false);
+        $this->template->content = View::forge('posts/change', $data, false);
         }
         else {
             if(Input::post('save')) {
@@ -83,7 +83,7 @@ class Controller_Posts extends Controller_Template
             }
             $data = array();
             $this->template->title = 'Add Student';
-            $this->template->content = View::forge('posts/add', $data, false);
+            $this->template->content = View::forge('posts/change', $data, false);
         }
     }
     //Delete student
