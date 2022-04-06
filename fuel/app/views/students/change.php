@@ -1,5 +1,5 @@
 <h2><?php echo isset($student->id) ? 'Update Student' : 'Add Student' ?></h2>
-<?php echo Form::open(isset($student->id) ? '/posts/change/<?php echo $student->id; ?>' : '/posts/change'); ?>
+<?php echo Form::open(isset($student->id) ? '/students/change/<?php echo $student->id; ?>' : '/students/change'); ?>
 <div class="student_name form-group" style="width: 80%; margin-left: 40px">
     <?php echo Form::label('Name', 'name'); ?>
     <?php echo Form::input('name', Input::post('name', isset($student) ? $student->name : ''), array('class' => 'form-control')); ?>
